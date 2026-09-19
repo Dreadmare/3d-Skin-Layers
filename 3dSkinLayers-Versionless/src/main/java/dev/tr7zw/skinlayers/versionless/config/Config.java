@@ -13,6 +13,8 @@ public class Config {
     public float bodyVoxelWidthSize = 1.05f;
     // public float bodyVoxelHeightSize = 1.02f;
     public float headVoxelSize = 1.18f;
+    public float helmetVoxelSize = 1.15f;
+    public float armorVoxelSize = 1.03f;
 
     public int renderDistanceLOD = 14;
 

@@ -6,7 +6,7 @@ public interface MeshProvider {
 
     /**
      * Returns the PlayerData for the given player.
-     * 
+     *
      * @param abstractClientPlayerEntity
      * @param layer
      * @return

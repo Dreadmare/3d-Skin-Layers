@@ -72,9 +72,19 @@ public class ConfigScreenProvider {
                         SkinLayersModBase.config.headVoxelSize = (float) i;
                         SkinLayersModBase.instance.refreshLayers(Minecraft.getInstance().player);
                     }));
+            options.add(getDoubleOption("text.skinlayers.helmetvoxelsize", 1.001f, 1.4f, 0.001f,
+                    () -> (double) SkinLayersModBase.config.helmetVoxelSize, (i) -> {
+                        SkinLayersModBase.config.helmetVoxelSize = (float) i;
+                        SkinLayersModBase.instance.refreshLayers(Minecraft.getInstance().player);
+                    }));
             options.add(getDoubleOption("text.skinlayers.bodyvoxelwidthsize", 1.001f, 1.4f, 0.001f,
                     () -> (double) SkinLayersModBase.config.bodyVoxelWidthSize, (i) -> {
                         SkinLayersModBase.config.bodyVoxelWidthSize = (float) i;
+                        SkinLayersModBase.instance.refreshLayers(Minecraft.getInstance().player);
+                    }));
+            options.add(getDoubleOption("text.skinlayers.armorvoxelsize", 1.001f, 1.4f, 0.001f,
+                    () -> (double) SkinLayersModBase.config.armorVoxelSize, (i) -> {
+                        SkinLayersModBase.config.armorVoxelSize = (float) i;
                         SkinLayersModBase.instance.refreshLayers(Minecraft.getInstance().player);
                     }));
 

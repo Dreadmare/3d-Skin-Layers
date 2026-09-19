@@ -109,30 +109,50 @@ public class PlayerModelMixin<T extends LivingEntity> extends HumanoidModel impl
             // fall back to vanilla
             return;
         }
+
+        ItemStack helmet = abstractClientPlayer.getItemBySlot(EquipmentSlot.HEAD);
+        boolean hasHelmet = !helmet.isEmpty();
+        float helmetScale = hasHelmet ? SkinLayersModBase.config.helmetVoxelSize : 1.0f;
+        float bodyScale = !abstractClientPlayer.getItemBySlot(EquipmentSlot.CHEST).isEmpty()
+                || !abstractClientPlayer.getItemBySlot(EquipmentSlot.LEGS).isEmpty()
+                || !abstractClientPlayer.getItemBySlot(EquipmentSlot.FEET).isEmpty()
+                        ? SkinLayersModBase.config.armorVoxelSize
+                        : 1.0f;
+
         // Inject layers into the vanilla model
+        if (SkinLayersModBase.config.enableHat
+                && (helmet.isEmpty() || !SkinLayersModBase.hideHeadLayers.contains(helmet.getItem()))) {
+            ((ModelPartInjector) (Object) hat).setInjectedMesh(settings.getHeadMesh(),
+                    OffsetProvider.HEAD.scaleBy(helmetScale));
+        }
+        /*
         ItemStack itemStack = abstractClientPlayer.getItemBySlot(EquipmentSlot.HEAD);
         if (SkinLayersModBase.config.enableHat
-                && (itemStack == null || !SkinLayersModBase.hideHeadLayers.contains(itemStack.getItem()))) {
-            ((ModelPartInjector) (Object) hat).setInjectedMesh(settings.getHeadMesh(), OffsetProvider.HEAD);
+            && (itemStack == null || !SkinLayersModBase.hideHeadLayers.contains(itemStack.getItem()))) {
+        ((ModelPartInjector) (Object) hat).setInjectedMesh(settings.getHeadMesh(), OffsetProvider.HEAD);
         }
-        if (SkinLayersModBase.config.enableJacket) {
-            ((ModelPartInjector) (Object) jacket).setInjectedMesh(settings.getTorsoMesh(), OffsetProvider.BODY);
+        */
+        if (SkinLayersModBase.config.enableJacket)
+
+        {
+            ((ModelPartInjector) (Object) jacket).setInjectedMesh(settings.getTorsoMesh(),
+                    OffsetProvider.BODY.scaleBy(bodyScale));
         }
         if (SkinLayersModBase.config.enableLeftSleeve) {
             ((ModelPartInjector) (Object) leftSleeve).setInjectedMesh(settings.getLeftArmMesh(),
-                    slim ? OffsetProvider.LEFT_ARM_SLIM : OffsetProvider.LEFT_ARM);
+                    (slim ? OffsetProvider.LEFT_ARM_SLIM : OffsetProvider.LEFT_ARM).scaleBy(bodyScale));
         }
         if (SkinLayersModBase.config.enableRightSleeve) {
             ((ModelPartInjector) (Object) rightSleeve).setInjectedMesh(settings.getRightArmMesh(),
-                    slim ? OffsetProvider.RIGHT_ARM_SLIM : OffsetProvider.RIGHT_ARM);
+                    (slim ? OffsetProvider.RIGHT_ARM_SLIM : OffsetProvider.RIGHT_ARM).scaleBy(bodyScale));
         }
         if (SkinLayersModBase.config.enableLeftPants) {
             ((ModelPartInjector) (Object) leftPants).setInjectedMesh(settings.getLeftLegMesh(),
-                    OffsetProvider.LEFT_LEG);
+                    OffsetProvider.LEFT_LEG.scaleBy(bodyScale));
         }
         if (SkinLayersModBase.config.enableRightPants) {
             ((ModelPartInjector) (Object) rightPants).setInjectedMesh(settings.getRightLegMesh(),
-                    OffsetProvider.RIGHT_LEG);
+                    OffsetProvider.RIGHT_LEG.scaleBy(bodyScale));
         }
     }
     //? }

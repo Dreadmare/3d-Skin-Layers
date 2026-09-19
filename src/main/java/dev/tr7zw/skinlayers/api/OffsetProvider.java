@@ -68,4 +68,16 @@ public interface OffsetProvider {
         };
     }
 
+    default OffsetProvider scaleBy(float scale) {
+        if (scale == 1.0f) {
+            return this;
+        }
+        final OffsetProvider self = this;
+        return (stack, mesh) -> {
+            stack.pushPose();
+            stack.scale(scale, scale, scale);
+            self.applyOffset(stack, mesh);
+            stack.popPose();
+        };
+    }
 }
