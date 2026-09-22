@@ -41,6 +41,6 @@
     "text.skinlayers.compatibilityMode.enable.tooltip": "Kaedah alternatif untuk memaparkan lapisan kulit. Mungkin membaiki sesetengah isu keserasian dengan mod lain",
     "text.skinlayers.irisCompatibilityMode.enable": "Mod Keserasian Iris",
     "text.skinlayers.irisCompatibilityMode.enable.tooltip": "Kaedah alternatif untuk memaparkan lapisan kulit, membaiki bayang-bayang/warna aneh apabila menggunakan pelorek Iris. Hanya aktifkan tetapan ini jika perlu. Akan memecahkan sambungan penjuru.",
-    "text.skinlayers.applySodiumWorkaround.enable": "Penyelasain Sodium",
-    "text.skinlayers.applySodiumWorkaround.enable.tooltip": "Penyelesain untuk sisi kubus songsang dalam sesetengah versi Sodium. Hanya aktifkan tetapan ini jika anda menggunakan Sodium dan mengalami isu visual dengan lapisan kulit yang ketiadaan sisi."
+    "text.skinlayers.applySodiumWorkaround.enable": "Penyelesaian Sodium",
+    "text.skinlayers.applySodiumWorkaround.enable.tooltip": "Penyelesaian untuk sisi kubus songsang dalam sesetengah versi Sodium. Hanya aktifkan tetapan ini jika anda menggunakan Sodium dan mengalami isu visual dengan lapisan kulit yang ketiadaan sisi."
 }
